@@ -12,14 +12,14 @@ pipeline {
     stage('Docker Build') {
       agent any
       steps {
-        sh 'docker build -t sdurgawad/hello-world:2.0 .'
+        sh 'docker build -t laphuocnguyen/hello-world:2.0 .'
       }
     }
 	stage ('Docker Push') {
       agent any
       steps {
         withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-          sh 'docker push sdurgawad/hello-world:2.0'
+          sh 'docker push laphuocnguyen/hello-world:2.0'
         }
       }
 	}
